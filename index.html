@@ -23,36 +23,60 @@
         .recovered:hover{
         background: lightslategray; 
         }
+
+     
+
+        /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+        @media screen and (max-width: 600px) {
+            .deaths, .confirmed, .recovered{
+                font-size: 15px;
+            }
+            .stats{
+                font-size: 15px;
+            }
+        }
+        @media screen and (max-width: 360px) {
+            .deaths, .confirmed, .recovered{
+                font-size: 11px;
+            }
+            .stats{
+                font-size: 11px;
+            }
+        }
     </style>
 
     <body>
         <!-- START NAV-->
-        <nav class="navbar">
-            <div class="container">
+
+        
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            
                 <div class="navbar-brand">
-                    <span class="navbar-burger burger" data-target="navbarMenu">
+                    <div class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
                         <span></span>
                         <span></span>
                         <span></span>
-                    </span>
+                    </div>
                 </div>
-                <div id="navbarMenu" class="navbar-menu">
+                <div id="navbarmenu" class="navbar-menu">
                     <div class="navbar-end">
-                        <a class="navbar-item" href="index.html"">
-                                Home
+                        <a class="navbar-item" href="index.html">
+                            Home
                         </a>
                         <a class="navbar-item" href="https://twitter.com/search?q=coronavirus+news&ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Esearch">
-                                Latest News - Twitter
+                            Latest News - Twitter
                         </a>
+
                         <a class="navbar-item" href="https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19.html">
-                                Govt. of Canada Advisory
+                            Govt. of Canada Advisory
                         </a>
+
                         <a class="navbar-item" href="https://www.cdc.gov/coronavirus/index.html">
-                                CDC
+                            CDC
                         </a>       
                     </div>
                 </div>
-            </div>
+            
         </nav>
         <!-- END NAV -->
 
@@ -64,7 +88,7 @@
             </div>
         </section>
 
-        <div class="container">
+        <div class="container is-medium is-small">
             <!-- START ARTICLE FEED -->
             <section class="articles">
                 <div class="column is-10 is-offset-1">
@@ -73,16 +97,16 @@
                         <div class="card-content">
                             <div class="media">
                                     <div class="media-content column is-4 has-text-centered" id ="confirmed"> 
-                                      <p class="title is-4">Total Confirmed Cases</p>
-                                      <p class="subtitle is-2 confirmed has-text-centered"></p>
+                                      <p class="title stats">Confirmed</p>
+                                      <p class="subtitle confirmed has-text-centered"></p>
                                     </div>
-                                    <div class="media-content column is-4 has-text-centered" id = "deaths">
-                                        <p class="title is-4">Total Deaths</p>
-                                        <p class="subtitle is-2 deaths"></p>
+                                    <div class="media-content column  has-text-centered" id = "deaths">
+                                        <p class="title stats">Deaths</p>
+                                        <p class="subtitle deaths"></p>
                                     </div>
-                                    <div class="media-content-center column is-4 has-text-centered" id = "recovered">
-                                        <p class="title is-4">Total Recovered</p>
-                                        <p class="subtitle is-2 recovered"></p>
+                                    <div class="media-content-center column  has-text-centered" id = "recovered">
+                                        <p class="title stats">Recovered</p>
+                                        <p class="subtitle recovered"></p>
                                     </div>
                             </div>
                         </div>
@@ -120,6 +144,10 @@
             recoveredEl.addEventListener("click", function() {
                 window.open("coronavirus_table.html","_self")
             });
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+        });
 
         </script>
 
